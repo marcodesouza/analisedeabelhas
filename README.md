@@ -1,12 +1,12 @@
-# 🐝 Monitoramento de Colmeias com Streamlit
+# 🐝 Monitoramento de Colmeias com Streamlit - Correlação Cruzada com Defasagem
 
-Este projeto é um aplicativo desenvolvido em **Python** com **Streamlit** para análise de dados ambientais de colmeias de abelhas, focando especialmente na comparação entre sensores de colmeias e o ambiente externo utilizando **Análise de Variância (ANOVA)**.
+Este projeto é um aplicativo interativo desenvolvido com **Streamlit** para análise de dados ambientais de colmeias de abelhas. Esta versão do app foca na análise da **influência temporal** entre variáveis, por meio da **Correlação Cruzada com Defasagem**, permitindo identificar atrasos entre sinais (por exemplo, entre ambiente e sensores da colmeia).
 
 ---
 
-## 📂 Formato dos Dados
+## 📂 Estrutura do Arquivo CSV
 
-O app espera um arquivo CSV com o seguinte formato:
+O app utiliza um arquivo `.csv` com os seguintes campos:
 
 ```csv
 data,hora,tc9,uc9,pc9,tamb,uamb,pamb
@@ -17,17 +17,22 @@ data,hora,tc9,uc9,pc9,tamb,uamb,pamb
 
 - `tc9`, `uc9`, `pc9`: Temperatura, Umidade e Pressão da Colmeia 9
 - `tamb`, `uamb`, `pamb`: Temperatura, Umidade e Pressão do Ambiente
-- `data`, `hora`: serão combinados em um índice `datetime`
+- `data`, `hora`: combinadas para formar o índice temporal
 
 ---
 
 ## ⚙️ Funcionalidades
 
-- Upload de CSV
-- Visualização de dados
-- Comparações com **ANOVA** (teste `f_oneway`)
-- Visualizações com boxplots
-- Identificação de diferenças estatisticamente significativas
+- Upload de CSV com dados ambientais
+- Visualização da série temporal
+- Análise de Correlação Cruzada com Defasagem:
+  - Escolha de variável dependente (ex: temperatura colmeia)
+  - Escolha de variável independente (ex: temperatura ambiente)
+  - Cálculo de correlação cruzada entre os pares de variáveis
+  - Identificação do **atraso (defasagem)** com maior correlação
+- Visualizações de:
+  - Sinais temporais
+  - Curva de correlação cruzada vs defasagem
 
 ---
 
@@ -35,11 +40,11 @@ data,hora,tc9,uc9,pc9,tamb,uamb,pamb
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seuusuario/nome-do-repositorio.git
-cd nome-do-repositorio
+git clone https://github.com/seuusuario/monitoramento-colmeias-defasagem.git
+cd monitoramento-colmeias-defasagem
 ```
 
-2. Instale as dependências:
+2. Instale os pacotes necessários:
 ```bash
 pip install -r requirements.txt
 ```
@@ -56,21 +61,20 @@ streamlit run app.py
 - Python 3
 - Streamlit
 - Pandas
-- Seaborn
+- Numpy
 - Matplotlib
 - Scipy
 
 ---
 
-## 📌 Observações
+## 📈 O Que é Correlação Cruzada com Defasagem?
 
-- Para rodar o app, basta subir um CSV no formato indicado
-- O teste ANOVA compara as médias das variáveis selecionadas para identificar diferenças estatísticas
+A correlação cruzada é uma técnica para medir a **semelhança entre duas séries temporais deslocadas no tempo**. Isso ajuda a identificar se mudanças em uma variável antecedem (ou seguem) mudanças em outra.
 
 ---
 
-## 🐝 Sobre
+## 🐝 Propósito do Projeto
 
-Este projeto foi desenvolvido para auxiliar apicultores e pesquisadores no monitoramento ambiental de colmeias, promovendo decisões baseadas em dados.
+Este aplicativo tem como objetivo auxiliar apicultores e pesquisadores a entenderem como fatores ambientais impactam sensores das colmeias ao longo do tempo, com foco em atrasos e dinâmicas de influência.
 
 
