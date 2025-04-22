@@ -62,7 +62,7 @@ if uploaded_file:
     tab9, tab10, tab11 = st.tabs(["Sensor 9", "Sensor 10", "Sensor 11"])
 
     sensores = {
-        "Sensor 9": ("tc9", "uc9", "pc9"),
+        "Sensor 9": ("tc09", "uc09", "pc09"),
         "Sensor 10": ("tc10", "uc10", "pc10"),
         "Sensor 11": ("tc11", "uc11", "pc11")
     }
