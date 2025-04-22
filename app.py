@@ -41,7 +41,7 @@ def show_lag_demo(df, var_env, var_colmeia, lag):
     st.dataframe(df_demo[[var_env, f"{var_env}_deslocado", var_colmeia]])
 
 # Upload do CSV
-st.sidebar.header("📂 Carregar dados")
+st.sidebar.header("📂 Carregar dadossss")
 uploaded_file = st.sidebar.file_uploader("Escolha o arquivo CSV", type="csv")
 
 if uploaded_file:
